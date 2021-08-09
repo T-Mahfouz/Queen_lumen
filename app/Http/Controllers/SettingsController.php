@@ -15,8 +15,8 @@ class SettingsController extends InitController
 
     public function index(Request $request)
     {
-        $lang = $request->header('lang') ?? 'en';
-        
+        $lang = getLang();
+
         try {
             $response = [
                 'contact-us' => new ContactUsResource($this->contact->getData($lang)),

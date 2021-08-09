@@ -12,10 +12,10 @@ class CategoryController extends InitController
     {
         parent::__construct();
     }
-    
+
     public function index(Request $request)
     {
-        $lang = $request->header('lang') ?? 'en';
+        $lang = getLang();
 
         try {
 
@@ -45,8 +45,8 @@ class CategoryController extends InitController
             return jsonResponse($e->getCode(), 'something went wrong!');
 
         }
-        
+
         return jsonResponse(200, 'done', $response);
     }
-    
+
 }
