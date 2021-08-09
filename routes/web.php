@@ -29,6 +29,4 @@ $router->group(['prefix' => 'api'], function () use ($router) {
 
 
     $router->get('settings', ['as' => 'settings', 'uses' => 'SettingsController@index']);
-
-    $router->get('test', 'SettingsController@test');
 });
