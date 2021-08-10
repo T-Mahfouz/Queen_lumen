@@ -21,12 +21,16 @@ $router->group(['prefix' => 'api'], function () use ($router) {
     $router->group(['prefix' => 'services', 'as' => 'services.'], function () use ($router) {
         $router->get('/', ['as' => 'index', 'uses' => 'ServiceController@index']);
     });
-    
+
     $router->group(['prefix' => 'categories', 'as' => 'categories.'], function () use ($router) {
         $router->get('/', ['as' => 'index', 'uses' => 'CategoryController@index']);
         $router->get('{id}', ['as' => 'show', 'uses' => 'CategoryController@show']);
     });
 
+    $router->group(['prefix' => 'clients', 'as' => 'clients.'], function () use ($router) {
+        $router->get('/', ['as' => 'index', 'uses' => 'ClientController@index']);
+        $router->get('{id}', ['as' => 'show', 'uses' => 'ClientController@show']);
+    });
 
     $router->get('settings', ['as' => 'settings', 'uses' => 'SettingsController@index']);
 });

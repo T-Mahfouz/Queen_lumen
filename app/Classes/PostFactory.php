@@ -8,9 +8,9 @@ class PostFactory implements PostFactoryInterface {
         return new Service();
     }
 
-    public function getProject(): ProjectInterface
+    public function getCategories(CategoryInterface $category): CategoryInterface
     {
-        return new Project();
+        return $category;
     }
 
     public function getContact(): ContactInfoInterface

@@ -19,10 +19,11 @@ function getCode($code)
 function unserializeImages($string) {
     $images = [];
     $image_list = unserialize($string);
-    foreach($image_list as $list) {
-        $images = array_merge($images, explode(',', $list));
+    if(is_array($image_list)) {
+        foreach($image_list as $list) {
+            $images = array_merge($images, explode(',', $list));
+        }
     }
-
     return $images;
 }
 

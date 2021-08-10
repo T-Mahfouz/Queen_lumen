@@ -2,26 +2,25 @@
 
 namespace App\Classes;
 
-use App\Models\Post;
-use App\Models\TermRelation;
-use App\Models\TermTaxonomy;
 use App\Models\Taxonomy;
+use App\Models\TermRelation;
 
-class Project extends PostLanguageAbstract implements CategoryInterface {
+class Client extends PostLanguageAbstract implements CategoryInterface
+{
 
     public function getTermTaxonomyIds($lang): Array
     {
         return TermRelation::whereIn(
-            'object_id', $this->getLangPostsIds('post_st_projects', $lang)
+            'object_id', $this->getLangPostsIds('post_clients', $lang)
         )
-        ->pluck('term_taxonomy_id')->toArray();
+            ->pluck('term_taxonomy_id')->toArray();
     }
 
     public function getAllPosts($lang = 'en')
     {
         return Taxonomy::with(['term'])
             ->whereIn('term_taxonomy_id', $this->getTermTaxonomyIds($lang))
-            ->projects()
+            ->clients()
             ->get();
     }
 

@@ -12,9 +12,14 @@ class Taxonomy extends Model
     protected $table = 'wp_term_taxonomy';
     protected $appends = ['projects'];
 
-    public function scopeCategories($query)
+    public function scopeProjects($query)
     {
         return $query->where('taxonomy','st-projects-category');
+    }
+
+    public function scopeClients($query)
+    {
+        return $query->where('taxonomy','st-clients-category');
     }
 
     public function term()

@@ -10,9 +10,9 @@ interface PostFactoryInterface {
     public function getService();
 
     /**
-     * @return ProjectInterface
-     */ 
-    public function getProject();
+     * @return CategoryInterface
+     */
+    public function getCategories(CategoryInterface $category);
 
     /**
      * @return ContactInfoInterface
